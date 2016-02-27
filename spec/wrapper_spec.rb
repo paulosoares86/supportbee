@@ -8,5 +8,9 @@ describe SupportBee do
       expect { SupportBee.new }.to raise_error(MissingTokenException)
     end
 
+    it "read tickets" do
+      client = SupportBee.new(auth_token: 'pywmQ4yzDnDv3MmK1aix')
+      expect(client.get_tickets.length).to be > 0
+    end
   end
 end
