@@ -1,5 +1,5 @@
 require './spec/spec_helper'
-require './wrapper'
+require './support_bee'
 
 
 describe SupportBee do
