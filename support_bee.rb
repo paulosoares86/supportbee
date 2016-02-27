@@ -1,8 +1,5 @@
 require './lib/exceptions'
-require './lib/support_bee_response'
-
 require 'rest-client'
-
 
 class SupportBee
 
@@ -17,6 +14,10 @@ class SupportBee
     execute(:get, 'tickets')
   end
 
+  def create_ticket(payload)
+    execute(:post, 'tickets', payload)
+  end
+
   private
 
     def try_convert_to_hash(str)
@@ -29,7 +30,7 @@ class SupportBee
       url = "#{@base_uri}/#{uri}?auth_token=#{@auth_token}"
       args = payload.nil? ? [url, @options] : [url, payload, @options]
       resp = RestClient.send(method, *args)
-      SupportBeeResponse.new(resp.code, try_convert_to_hash(resp.body))
+      try_convert_to_hash(resp)
     end
 
 end
