@@ -18,5 +18,8 @@ describe SupportBee do
       client = SupportBee.new(auth_token: AUTH_TOKEN, subdomain: 'paulosoares')
       expect(client.get_tickets.length).to be > 0
     end
+
+    
+
   end
 end

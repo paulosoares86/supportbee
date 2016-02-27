@@ -1,12 +1,8 @@
+require './lib/exceptions'
+require './lib/support_bee_response'
+
 require 'rest-client'
 
-class MissingTokenException < Exception
-end
-
-class MissingSubdomainException < Exception
-end
-
-SupportBeeResponse = Struct.new(:code, :body)
 
 class SupportBee
 
